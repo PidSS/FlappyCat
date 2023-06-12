@@ -1,12 +1,9 @@
 const logger=require("./log.js");
 var mysql=require('mysql');
+var fs = require('fs');
+var dbconfig = JSON.parse(fs.readFileSync('./config.json').toString()).dbconfig;
 
-var connection = mysql.createConnection({
-    host     : 'localhost',
-    socketPath : '/tmp/mysql.sock',
-    user     : 'webdevelop',
-    password : 'Webdevelop$0408',
-});
+var connection = mysql.createConnection(dbconfig);
 
 //连接到MySQl
 connection.connect((err)=>{

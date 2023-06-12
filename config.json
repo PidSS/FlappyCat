@@ -1,0 +1,8 @@
+{
+    "dbconfig": {
+        "host":         "localhost",
+        "socketPath":   "/tmp/mysql.sock",
+        "user":         "webdevelop",
+        "password":     "Webdevelop$0408"
+    }
+}
