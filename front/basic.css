@@ -1,0 +1,58 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    float: right;
+    height: 110px;
+    background-color: #eee;
+    padding: 10px;
+    z-index: 10;
+    width: 90px;
+    top:250px;
+    right: 10px;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-family: 'YLHei';
+    font-weight: bold;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 80px;
+}
+
+@font-face{
+    font-family: 'hwcy';
+    src : url('/resources/fonts/hwcy.ttf');
+}
+
+@font-face{
+    font-family: 'FB';
+    src : url('/resources/fonts/FB.ttf');
+    src:url(/resources/fonts/FB.eot);
+    src:url(/resources/fonts/FB.eot?#iefix) format("embedded-opentype"),url(/resources/fonts/FB.woff) format("woff"),url(/resources/fonts/FB.ttf) format("truetype"),url(/resources/fonts/FB.svg#04b_19regular) format("svg");
+    font-weight:400;
+    font-style:normal;
+}
+
+@font-face{
+    font-family: 'YLHei';
+    src:url('/resources/fonts/HYYuanLongHei90W.ttf');
+}
+
+::-webkit-scrollbar {
+    display: none; /* Chrome Safari */
+    
+}
+
+html, body {
+    scroll-behavior: smooth;
+}

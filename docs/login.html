@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>登录页面</title>
+        <script type="text/javascript" src="jquery-3.6.1.min.js"></script>
+        <script type="text/javascript" src="md5.min.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+        <form>
+            <div><span>用户名</span><input type="text" name="name"/></div>
+            <div><span>密码</span><input type="password" name="password" /></div>
+            <div><span>重复密码</span><input type="password" name="repeat_pwd" /></div>
+            <div><button type="button" onclick="register(this.form)">注册</button></div>
+        </form>
+        <div style="height: 100px;"></div>
+        <form>
+            <div><span>用户名</span><input type="text" name="name"/></div>
+            <div><span>密码</span><input type="password" name="password" /></div>
+            <div><button type="button" onclick="login(this.form)">登陆</button></div>
+        </form>
+    </body>
+</html>
+
+<script>
+
+    //登陆函数
+    login = (form)=>{
+        /*待补充入参验证*/
+
+        //前端加密
+        let fd = new FormData(form);
+        let name = fd.get("name");
+        let pwd0 = fd.get("password"); //原始密码
+        const salt = "6d8fc80ae8d10ce7d179d9bef28df666"; //盐值
+        let pwd1 = md5(pwd0+salt, name); //加盐后哈希
+        
+        //提交 使用GET/POST均可
+        $.ajax({
+            url: "/login",
+            type: "GET",
+            data: {
+                name: name,
+                password: pwd1
+            },
+            success: (res)=>{
+                if (res!="Incorrect Username or Password"){
+                    alert("登陆成功");
+                    console.log(res);
+                } else {
+                    alert("登陆失败，用户名或密码错误\n");
+                }
+            },
+            error: (xhr, status, error)=>{
+                alert("发生错误\n状态码："+status+"\n"+error);
+            }
+        })
+    }
+
+    //注册函数
+    register = (form)=>{
+        /*待补充入参验证 记得验证重复密码一致*/
+
+        //前端加密
+        let fd = new FormData(form);
+        let name = fd.get("name");
+        let pwd0 = fd.get("password"); //原始密码
+        const salt = "6d8fc80ae8d10ce7d179d9bef28df666"; //盐值
+        let pwd1 = md5(pwd0+salt, name); //加盐后哈希
+        
+        //提交 使用GET/POST均可
+        $.ajax({
+            url: "/register",
+            type: "GET",
+            data: {
+                name: name,
+                password: pwd1
+            },
+            success: (res)=>{
+                if (res!="Username Repeated"){
+                    alert("注册成功");
+                    console.log(res);
+                } else {
+                    alert("注册失败，用户名有重复\n");
+                }
+            },
+            error: (xhr, status, error)=>{
+                alert("发生错误\n状态码："+status+"\n"+error);
+            }
+        })
+    }
+
+</script>

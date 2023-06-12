@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="/lib/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript" src="/lib/md5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/basic.css">
+    <script type="text/javascript" src="/basic.js"></script>
+
+    <title>Login</title>
+    <script src="login.js"></script>
+</head>
+
+<body>
+
+
+
+    <script>
+        function validateForm() {
+            var username = document.forms["form_login"]["username"].value;
+            var password = document.forms["form_login"]["password"].value;
+            if (username == "" || password == "") {
+                alert("用户名和密码不能为空！");
+                return false;
+            }
+            return true;
+        }
+    </script>
+    <style>
+        body {
+            position: absolute;
+            margin: 0;
+            width: 100%;
+            background-color: rgb(113, 58, 58);
+            background-image: url("resources/bkgnd2.png");
+            background-repeat: repeat;
+            background-size: cover;
+            background-attachment:fixed;
+            background-position: bottom;
+
+        }
+
+        h1 {
+
+            font-size: 60px;
+            text-decoration: dashed;
+            text-align: center;
+            color: rgb(142, 83, 10);
+        }
+
+        h2 {
+            font-size: 40px;
+            text-align: center;
+            color: rgb(142, 83, 10);
+            font-style: italic;
+            font-family: hwcy;
+        }
+
+
+        input {
+            vertical-align: middle;
+            size: 30px;
+        }
+
+        p {
+            font-size: 29px;
+            text-align: center;
+            color: rgb(142, 83, 10);
+            font-family: 黑体;
+            font-weight: 200;
+            font-size: 34px;
+            line-height: 1.2;
+            letter-spacing: 0.01em;
+        }
+
+
+        form {
+            text-align: center;
+        }
+
+        ul#heading {
+            list-style-type: none;
+
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow: hidden;
+            background-color: rgb(166, 144, 107);
+        }
+
+        li {
+            float: left;
+            width: 25%;
+        }
+
+        li a {
+            display: block;
+            color: rgb(244, 246, 247);
+            font-size: 24px;
+            font-family: FB;
+            text-shadow: 0 0 4px rgb(69, 30, 7);
+            text-align: center;
+            padding: 18px 80px;
+            text-decoration: none;
+            padding-top: 17px;
+            padding-bottom: 14px;
+        }
+
+        li a:hover:not(.active) {
+            background-color: rgb(229, 140, 31);
+            color: white;
+        }
+
+        .active {
+            background-color: rgb(50, 68, 119);
+            color: white;
+        }
+    </style>
+    <ul id="heading">
+        <li><a href="game.html">Game</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="login.html" class="active">Login</a></li>
+        <li style="float:right"><a href="rank.html">Rank</a></li>
+    </ul>
+    <br><br><br>
+
+    <h1><img src="resources/youbanana.gif"></h1>
+    <p><img src="resources/banana_cat_raw.png" style="
+        width: 22%;
+        height: 30%;
+        float: inline-start;
+        margin-left: 146px;
+    "></p>
+    <h2>-Do you remember your title and flying trick?</h2>
+    <br>
+    <br>
+    <br>
+    <form name="form_login" onsubmit="return validateForm()" method="post" id="form_login" style="padding-bottom: 120px;">
+        <p><label for="username"><span style="background-color: aliceblue;">➷name:</span></label>
+            <input type="text" id="username" name="username" style="width:200px;height:30px">
+        </p>
+
+        <p><label for="password"><span style="background-color: #fcfcbf">➷password:</span></label>
+            <input type="password" id="password" name="password" style="width:200px;height:30px;margin-right: 32px">
+        </p>
+        <br>
+
+        <br><br>
+        <input type="submit" value="  SUBMIT  "
+            style="background-color:rgb(241, 237, 232);font-family:FB;font-size:25px;line-height: 40px;" id="link_login">
+    </form>
+
+
+
+
+</body>
+
+</html>

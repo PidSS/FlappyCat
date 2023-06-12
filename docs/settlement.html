@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>登录页面</title>
+        <script type="text/javascript" src="jquery-3.6.1.min.js"></script>
+        <script type="text/javascript" src="md5.min.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+        <form>
+            <div>
+                <span>id</span>
+                <input type="number" name="id"/>
+            </div>
+            <div>
+                <span>得分</span>
+                <input type="number" name="mark"/>
+            </div>
+            <div>
+                <button type="button" onclick="settlement(this.form)">提交</button>
+            </div>
+        </form>
+    </body>
+
+    <script>
+        settlement = function(form){
+            let fd = new FormData(form);
+            let id = fd.get("id");
+            let mark = fd.get("mark");
+            $.ajax({
+                url: "/settlement",
+                type: "GET",
+                data: {
+                    id,
+                    mark
+                },
+                success: (res)=>{
+                    let print = `id:${res.id}\nname:${res.name}\nrecord:${res.record}`;
+                    alert(print);
+                },
+                error:  (xhr, status, error)=>{
+                    alert("发生错误\n状态码："+status+"\n"+error);
+                }
+            })
+        }
+    </script>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="/lib/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript" src="/lib/md5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/basic.css">
+    <script type="text/javascript" src="/basic.js"></script>
+    <title>rank</title>
+</head>
+<style>
+    h1 {
+        text-align: center;
+        margin-top: 35px;
+        margin-bottom: 0;
+    }
+
+    h1 > img {
+        width: 500px;
+    }
+
+    body {
+        position: absolute;
+        margin: 0;
+        width: 100%;
+        background-color: rgb(113, 58, 58);
+        background-image: url("resources/ezgif-1-93f9cbff87.gif");
+        background-repeat: repeat;
+        background-size: cover;
+        background-attachment:fixed;
+        background-position: bottom;
+    }
+
+    table {
+        width: 600px;
+        text-align: left;
+        position: relative;
+        left: 200px;
+        border-color: white;
+        text-align: center;
+        border-width: 5px;
+
+    }
+
+    thead {
+        font-weight: bold;
+    }
+
+    td {
+        height: 28px;
+        overflow: hidden
+    }
+
+    p {
+        font-family: hwcy;
+        text-align: center;
+        font-size: 50px;
+        color: wheat;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    ul#heading {
+        list-style-type: none;
+
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow: hidden;
+        background-color: rgb(166, 144, 107);
+    }
+
+    li {
+        float: left;
+        width: 25%;
+    }
+
+    li a {
+        display: block;
+        color: rgb(244, 246, 247);
+        font-size: 24px;
+        font-family: FB;
+        text-shadow: 0 0 4px rgb(69, 30, 7);
+        text-align: center;
+        text-align: center;
+        padding: 18px 80px;
+        text-decoration: none;
+        padding-top: 17px;
+        padding-bottom: 14px;
+    }
+
+    li a:hover:not(.active) {
+        background-color: rgb(229, 140, 31);
+        color: white;
+    }
+
+    .active {
+        background-color: rgb(50, 68, 119);
+        color: white;
+    }
+</style>
+
+<script>
+    //从 数据库/后端 获取排名信息 
+    $(() => {
+        $.ajax({
+            url: "/rank",
+            type: "GET",
+            success: (res) => {
+                res.forEach(item => {
+                    $("tbody").append(`<tr>
+                            <td>${item.id}</td>
+                            <td>${item.name}</td>
+                            <td>${item.record}</td>
+                        </tr>`);
+                });
+            }
+        })
+    });
+
+</script>
+
+<body>
+    <ul id="heading">
+        <li><a href="game.html">Game</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li style="float:right" class="active"><a href="rank.html">Rank</a></li>
+    </ul>
+    <h1><img src="resources/HONERROLL.png"></h1>
+
+    <p>You so brave cat!</p>
+    <div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>score</td>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <br><br><br><br><br>
+    </div>
+</body>
+
+</html>

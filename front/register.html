@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="/lib/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript" src="/lib/md5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/basic.css">
+    <script type="text/javascript" src="/basic.js"></script>
+
+    <title>Register</title>
+    <script src="login.js"></script>
+</head>
+
+
+
+<body>
+
+    <script>
+    </script>
+    <style>
+        body {
+            position: absolute;
+            margin: 0;
+            width: 100%;
+            background-color: rgb(113, 58, 58);
+            background-image: url("resources/bkgnd4.png");
+            background-repeat: repeat;
+            background-size: cover;
+            background-attachment:fixed;
+            background-position: bottom;
+
+        }
+
+        h1 {
+
+            font-size: 60px;
+            text-decoration: dashed;
+            text-align: center;
+            color: rgb(142, 83, 10);
+        }
+
+        h2 {
+            font-size: 48px;
+            text-align: center;
+            font-family: hwcy;
+            color: #b37f1e;
+
+            font-style: italic;
+        }
+
+        input {
+            vertical-align: middle;
+            size: 30px;
+        }
+
+        p {
+            font-size: 29px;
+            font-family: 黑体;
+            text-align: center;
+            color: rgb(142, 83, 10)
+        }
+
+        form {
+            text-align: center;
+        }
+
+        ul#heading {
+            list-style-type: none;
+
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow: hidden;
+            background-color: rgb(166, 144, 107);
+        }
+
+        li {
+            float: left;
+            width: 25%;
+        }
+
+        li a {
+            display: block;
+            color: rgb(244, 246, 247);
+            font-size: 24px;
+            font-family: FB;
+            text-shadow: 0 0 4px rgb(69, 30, 7);
+            text-align: center;
+            padding: 18px 80px;
+            text-decoration: none;
+            padding-top: 17px;
+            padding-bottom: 14px;
+        }
+
+        li a:hover:not(.active) {
+            background-color: rgb(229, 140, 31);
+            color: white;
+        }
+
+        .active {
+            background-color: rgb(50, 68, 119);
+            color: white;
+        }
+    </style>
+    <ul id="heading">
+        <li><a href="game.html">Game</a></li>
+        <li><a href="register.html" class="active">Register</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li style="float:right"><a href="rank.html">Rank</a></li>
+    </ul>
+    <h1><img src="resources/Wannafly.gif"></h1>
+    <p><img src="resources/banana_cat_raw.png" style="width:20%;height:30%">&nbsp; &nbsp;
+        <img src="resources/banana_cat_raw.png" style="width:20%;height:30%">&nbsp; &nbsp;
+        <img src="resources/banana_cat_raw.png" style="width:20%;height:30%">
+    </p>
+
+
+    <br>
+    <br>
+
+    <form name="form_reg" method="post" id="form_reg">
+        <p><label for="username"><span style="background-color: aliceblue;">➷name:</span></label>
+            <input type="text" id="username" name="username" style="width:200px;height:30px">
+        </p>
+
+        <p><label for="password"><span style="background-color: aliceblue;">➷password:</span></label>
+            <input type="password" id="password" name="password" style="width:200px;height:30px;margin-right: 32px">
+        </p>
+
+        <p><label for="password"><span style="background-color: aliceblue;">➷confirmPassword:</span></label>
+            <input type="password" id="confirmPassword" name="confirmPassword"
+                style="width:200px;height:30px;margin-right: 32px">
+        </p>
+
+
+        <br><br>
+        <input type="submit" value="  SUBMIT  "
+            style="background-color:rgb(224, 181, 52);font-family:FB;font-size:25px;color:white;line-height: 40px;">
+    </form>
+
+
+
+
+</body>
+
+</html>

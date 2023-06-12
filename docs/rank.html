@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>登录页面</title>
+        <script type="text/javascript" src="jquery-3.6.1.min.js"></script>
+        <script type="text/javascript" src="md5.min.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="3">排行榜</th>
+                </tr>
+                <tr>
+                    <td>ID</td>
+                    <td>姓名</td>
+                    <td>得分</td>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        
+    </body>
+
+    <script>
+        $(()=>{
+            $.ajax({
+                url: "/rank",
+                type: "GET",
+                success: (res)=>{
+                    res.forEach(item => {
+                        $("tbody").append(`<tr>
+                            <td>${item.id}</td>
+                            <td>${item.name}</td>
+                            <td>${item.record}</td>
+                        </tr>`);
+                    });
+                },
+                error: (xhr,status,error)=>{
+                    console.error(xhr,status,error);
+                }
+            })
+        });
+
+    </script>
+
+    <style>
+        table {
+            margin: auto
+        }
+
+        table,
+        td {
+            border: 1px solid #333;
+        }
+
+        td {
+            width: 200px;
+            text-align: center;
+        }
+
+        thead,
+        tfoot {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</html>
